@@ -1,41 +1,74 @@
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Nunito Sans', sans-serif;
   background-color: #f8f9fa;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
   margin: 0;
+  padding: 0;
+  color: #333;
 }
 
-.cart-container {
-  background-color: #ffffff;
-  padding: 40px 60px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 800px;
-  text-align: center;
+header {
+  background-color: #4A628A;
+  padding: 10px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index:1000
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #DFF2EB;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
 }
 
 .cart-header {
-  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .logo {
-  width: 120px;
-  margin-bottom: 20px;
+  width: 100px;
+  margin-right: 15px;
 }
 
 .cart-header h2 {
   margin: 0;
-  font-size: 28px;
-  color: #333;
+  font-size: 24px;
+  color: #DFF2EB;
+}
+
+.cart-container,
+.contact-container {
+  background-color: #ffffff;
+  padding: 40px 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 40px auto;
 }
 
 .items {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content:center;
   gap: 20px;
 }
 
@@ -44,6 +77,8 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: calc(29% - 20px); /* Para mostrar 3 items por fila */
 }
 
 .item-img {
@@ -65,7 +100,7 @@ body {
 .add-to-cart {
   margin-top: 10px;
   padding: 10px 15px;
-  background-color: #28a745;
+  background-color: #7AB2D3;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -74,24 +109,137 @@ body {
 }
 
 .add-to-cart:hover {
-  background-color: #218838;
+  background-color: #B9E5E8;
+  color: #555;
+}
+
+.reviews {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.reviews h4 {
+  margin: 0 0 10px 0;
+  font-size: 18px;
+}
+
+.reviews p {
+  margin: 5px 0;
+  color: #555;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group input,
+.form-group textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+}
+
+button[type="submit"] {
+  width: 50%;
+  padding: 10px 0;
+  background-color: #7AB2D3;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  align-self:center;
+}
+
+button[type="submit"]:hover {
+  background-color: #B9E5E8;
+  color: #555;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.reviews h4 {
+  grid-column: span 2;
+  font-size: 16px;
+  color: #333;
+  margin: 0 0 5px 0;
+}
+
+.reviews p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+footer {
+  text-align: center;
 }
 
 /* Media Queries */
 @media (max-width: 600px) {
-  .cart-container {
-      padding: 20px 40px;
+  .cart-container,
+  .contact-container {
+      padding: 20px 30px;
   }
 
-  .cart-header h2 {
-      font-size: 24px;
+  .cart-header h2,
+  .contact-container h2 {
+      font-size: 20px;
   }
 
-  .item h3 {
+  .items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .item {
+    width: 100%;
+  }
+
+  .item h3,
+  .reviews h4 {
       font-size: 18px;
   }
 
-  .item p {
+  .item p,
+  .reviews p,
+  .form-group input,
+  .form-group textarea,
+  button[type="submit"] {
+      font-size: 14px;
+  }
+
+  .add-to-cart {
       font-size: 14px;
   }
 }
