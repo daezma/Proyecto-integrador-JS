@@ -226,6 +226,24 @@ footer {
   margin-left: 5px;
 }
 
+/* Resumen html */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+th {
+  background-color: #f2f2f2;
+}
+.delete-item {
+  color: red;
+  cursor: pointer;
+}
+
 /* Media Queries */
 @media (max-width: 600px) {
   .cart-container,
