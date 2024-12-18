@@ -16,7 +16,7 @@
     <header>
       <div class="cart-header">
         <img src="./img/logo.png" alt="Logo" class="logo" />
-        <h2>Tienda de mascotas</h2>
+        <h2>Tienda de ofertas</h2>
         <!-- Ícono del carrito -->
         <div class="cart-icon">
           <a href="#carrito">
@@ -25,7 +25,7 @@
               alt="Carrito"
             />
           </a>
-          <span class="cart-count">0</span>
+          <span id="contador" class="cart-count">0</span>
         </div>
       </div>
       <nav>
@@ -39,168 +39,7 @@
     <main>
       <section id="Productos">
         <div class="cart-container">
-          <div class="items">
-            <div class="item">
-              <img src="./img/raton.png" alt="Juguete Ratón" class="item-img" />
-              <h3>Juguete Ratón</h3>
-              <p>
-                Descripción Detallada: Ratón de peluche con sonido para gatos.
-              </p>
-              <p>Categoría: Juguetes</p>
-              <p>Precio: $500</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: ¡A mi gato le encanta!</p>
-                <p>Usuario2: Buena calidad, pero un poco caro.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/rascador.png"
-                alt="Rascador de Cartón"
-                class="item-img"
-              />
-              <h3>Rascador de Cartón</h3>
-              <p>
-                Descripción Detallada: Rascador de cartón reciclado para gatos.
-              </p>
-              <p>Categoría: Rascadores</p>
-              <p>Precio: $800</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Muy duradero, mi gato lo ama.</p>
-                <p>Usuario2: Excelente calidad por el precio.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/comedero.png"
-                alt="Plato de Comida"
-                class="item-img"
-              />
-              <h3>Plato de Comida</h3>
-              <p>
-                Descripción Detallada: Plato de cerámica para comida de gatos.
-              </p>
-              <p>Categoría: Alimentación</p>
-              <p>Precio: $300</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: El tamaño perfecto.</p>
-                <p>Usuario2: Fácil de limpiar.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/cama.png"
-                alt="Cama Acolchonada"
-                class="item-img"
-              />
-              <h3>Cama Acolchonada</h3>
-              <p>
-                Descripción Detallada: Cama acolchonada para el descanso de los
-                gatos.
-              </p>
-              <p>Categoría: Descanso</p>
-              <p>Precio: $1500</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Mi gato no sale de la cama.</p>
-                <p>Usuario2: Muy suave y cómoda.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/collar.png"
-                alt="Collar con Cascabel"
-                class="item-img"
-              />
-              <h3>Collar con Cascabel</h3>
-              <p>
-                Descripción Detallada: Collar ajustable con cascabel para gatos.
-              </p>
-              <p>Categoría: Accesorios</p>
-              <p>Precio: $200</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: El cascabel es adorable.</p>
-                <p>Usuario2: Fácil de ajustar.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img src="./img/agua.png" alt="Fuente de Agua" class="item-img" />
-              <h3>Fuente de Agua</h3>
-              <p>
-                Descripción Detallada: Fuente automática de agua para gatos.
-              </p>
-              <p>Categoría: Alimentación</p>
-              <p>Precio: $1200</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Mi gato bebe más agua ahora.</p>
-                <p>Usuario2: Fácil de montar.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/arenero.png"
-                alt="Arenero Cubierto"
-                class="item-img"
-              />
-              <h3>Arenero Cubierto</h3>
-              <p>
-                Descripción Detallada: Arenero cubierto para la higiene de los
-                gatos.
-              </p>
-              <p>Categoría: Higiene</p>
-              <p>Precio: $1000</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Mantiene el olor bajo control.</p>
-                <p>Usuario2: Muy espacioso.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/transporte.png"
-                alt="Transportín"
-                class="item-img"
-              />
-              <h3>Transportín</h3>
-              <p>Descripción Detallada: Transportín de plástico para gatos.</p>
-              <p>Categoría: Viaje</p>
-              <p>Precio: $2500</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Muy seguro y resistente.</p>
-                <p>Usuario2: Fácil de limpiar.</p>
-              </div>
-            </div>
-            <div class="item">
-              <img
-                src="./img/bolsaarena.png"
-                alt="Bolsa de Arena"
-                class="item-img"
-              />
-              <h3>Bolsa de Arena</h3>
-              <p>Descripción Detallada: Bolsa de arena para gatos de 5kg.</p>
-              <p>Categoría: Higiene</p>
-              <p>Precio: $700</p>
-              <button class="add-to-cart">Agregar al Carrito</button>
-              <div class="reviews">
-                <h4>Reseñas:</h4>
-                <p>Usuario1: Dura mucho tiempo.</p>
-                <p>Usuario2: Buena absorción.</p>
-              </div>
-            </div>
+          <div id="items" class="items">
           </div>
         </div>
       </section>
@@ -233,5 +72,6 @@
     <footer>
       <p>@Damián E. Maenza - 2024</p>
     </footer>
+    <script src="/script.js"></script>
   </body>
 </html>
