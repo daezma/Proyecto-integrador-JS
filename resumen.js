@@ -32,7 +32,7 @@ function crearFuncionalidadBorrado() {
 
 function crearFuncionalidadCambioCantidad() {
   document.querySelectorAll(".count-item").forEach(function (element) {
-    element.addEventListener("blur", function () {
+    element.addEventListener("blur", () => {
       var id = element.id;
       var partes = id.split("_");
       var sku = partes[1];
@@ -57,6 +57,16 @@ function crearFuncionalidadCambioCantidad() {
   });
 }
 
+function botonFinalizar() {
+  var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  var boton = document.querySelector("#btnFnalizarCompra");
+  boton.disabled = (carrito.length == 0) ? true : false;
+
+  boton.addEventListener("clic", () => {
+
+  });
+}
+
 function actualizarCarrito() {
   var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   var listaCarrito = document.getElementById("lista-carrito");
@@ -64,19 +74,22 @@ function actualizarCarrito() {
   for (let i = 0; i < carrito.length; i++) {
     var producto = carrito[i];
     var tr = document.createElement("tr");
+    var price = producto.price.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    var total = producto.total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     tr.innerHTML = `
-      <td>${producto.sku}</td>
+      <td class="tdCenter">${producto.sku}</td>
       <td>${producto.title}</td>
-      <td>$${producto.price}</td>
-      <td>$${producto.total}</td>
-      <td><input type="number" value="${producto.cantidad}" min="1" class="count-item" id="count-item_${producto.sku}" ></td>
-      <td><span id="delete-item_${producto.sku}" class="delete-item">Borrar</span></td>
+      <td class="tdRight">$${price}</td>
+      <td class="tdRight">$${total}</td>
+      <td class="tdCenter"><input type="number" value="${producto.cantidad}" min="1" class="count-item" id="count-item_${producto.sku}" ></td>
+      <td class="tdCenter"><span id="delete-item_${producto.sku}" class="delete-item">Borrar</span></td>
     `;
     //li.textContent = producto.title + " - $ " + producto.total;
     listaCarrito.appendChild(tr);
   }
   crearFuncionalidadBorrado();
   crearFuncionalidadCambioCantidad();
+  botonFinalizar();
 }
 
 actualizarCarrito();
