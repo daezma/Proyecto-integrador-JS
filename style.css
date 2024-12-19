@@ -279,6 +279,7 @@ td {
   background-color: rgb(0, 0, 0);
   background-color: rgba(0, 0, 0, 0.4);
 }
+
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
@@ -286,12 +287,14 @@ td {
   border: 1px solid #888;
   width: 80%;
 }
+
 .close {
   color: #aaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
+
 .close:hover,
 .close:focus {
   color: black;
@@ -338,5 +341,48 @@ td {
 
   .add-to-cart {
     font-size: 14px;
+  }
+
+  .modal-content {
+    width: 90%;
+    padding: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centrado absoluto */
+    box-sizing: border-box; /* Para incluir padding y border en el tamaño total */
+  }
+
+  thead {
+    display: none; /* Ocultar encabezado en pantallas pequeñas */
+  }
+
+  tr {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  td {
+    display: block;
+    text-align: center;
+    padding-left: 10%;
+    position: relative;
+  }
+
+  td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 10px;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  td:last-child { margin-bottom: 0; }
+
+  .tdRight {
+    text-align: center;
   }
 }

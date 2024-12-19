@@ -43,8 +43,7 @@ function crearFuncionalidadCambioCantidad() {
           return producto.sku == sku;
         });
         element.value = carrito[0].cantidad;
-      }
-      else {
+      } else {
         if (element.value != "") {
           const cant = parseInt(element.value);
           if (cant > 0) {
@@ -60,10 +59,19 @@ function crearFuncionalidadCambioCantidad() {
 function botonFinalizar() {
   var carrito = JSON.parse(localStorage.getItem("carrito")) || [];
   var boton = document.querySelector("#btnFnalizarCompra");
-  boton.disabled = (carrito.length == 0) ? true : false;
+  boton.disabled = carrito.length == 0 ? true : false;
 
-  boton.addEventListener("clic", () => {
-
+  boton.addEventListener("click", () => {
+    var modal = document.querySelector("#modal_gracias");
+    modal.style.display = "block";
+    // Obtener el elemento <span> que cierra el modal
+    var span = document.querySelector("#closeModal_gracias");
+    span.onclick = function () {
+      modal.style.display = "none";
+    };
+    //Borrar el carrito
+    localStorage.removeItem("carrito");
+    actualizarCarrito();
   });
 }
 
@@ -74,8 +82,14 @@ function actualizarCarrito() {
   for (let i = 0; i < carrito.length; i++) {
     var producto = carrito[i];
     var tr = document.createElement("tr");
-    var price = producto.price.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    var total = producto.total.toLocaleString('es-ES', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    var price = producto.price.toLocaleString("es-ES", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    var total = producto.total.toLocaleString("es-ES", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
     tr.innerHTML = `
       <td class="tdCenter">${producto.sku}</td>
       <td>${producto.title}</td>
