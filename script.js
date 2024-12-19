@@ -86,7 +86,7 @@ function crearItems(itemJson) {
 
 const obtenerItems = async () => {
   try {
-    const get = await fetch("./productos.json");
+    const get = await fetch("https://raw.githubusercontent.com/daezma/Proyecto-integrador-JS/refs/heads/main/productos.json");
     const items = await get.json();
 
     //Crear un ciclo que genere dinámicamente una lista de productos disponibles y los muestre en la consola
